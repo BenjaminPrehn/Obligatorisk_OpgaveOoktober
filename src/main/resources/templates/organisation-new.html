@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"></head>
+
+<body>
+<nav th:replace="layouts :: navbar"> </nav>
+
+<div class="container">
+    <form action="/organisation/save" th:object="${allOrganisations}" method="POST">
+        <input type="text" placeholder="Organisation Name" th:field="${allOrganisations.name}">
+
+        <select th:field="*{employees}" multiple="multiple">
+            <option th:each = "employee : ${allEmployees}"
+                    th:value = "${employee.employeeId}"
+                    th:text="${employee.firstname}">
+            </option>
+        </select>
+
+        <button type="submit">Create Organisation</button>
+    </form>
+</div>
+
+</body>
+
+</html>

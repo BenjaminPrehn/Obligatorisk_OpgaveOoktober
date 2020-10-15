@@ -7,7 +7,30 @@
 
 <head th:replace="layouts :: navbar"></head>
 
-<h1>Hello World</h1>
+<div class="container">
+    <h4>Employees Dashboard</h4>
+    <div class="row">
+        <div class="col-md-6">
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Project Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aEmployeeProjectCnt : ${employeesListProjectCnt}">
+                    <td th:text="${aEmployeeProjectCnt.firstname}"></td>
+                    <td th:text="${aEmployeeProjectCnt.lastname}"></td>
+                    <td th:text="${aEmployeeProjectCnt.projectCount}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

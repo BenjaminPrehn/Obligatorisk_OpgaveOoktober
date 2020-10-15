@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <head th:replace="layouts :: header"></head>
+</head>
+<body>
+
+<head th:replace="layouts :: navbar"></head>
+
+<div class="container">
+    <h4>Organisation</h4>
+    <hr>
+
+    <a th:href="@{/organisation/new}" class="btn btn-primary btn-sm mb-3"> Add Organisation</a>
+
+     <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Project Name</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="allOrganisations : ${organisations}">
+            <td th:text="${allOrganisations.name}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
